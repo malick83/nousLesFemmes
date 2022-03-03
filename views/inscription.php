@@ -21,32 +21,51 @@ ini_set("display_errors", 1);
     <form method="POST" action="/mesProjets/nousLesFemmes/controllers/enregistrements.php">
         <div class="mb-3">
             <label for="prenom" class="form-label">Prénom</label>
-            <input id="prenom" class="form-control" name="rep-prenom" type="text" placeholder="Malick" aria-describedby="emailHelp">
+            <input id="prenom" class="form-control" name="prenom" type="text" placeholder="Malick" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="nom" class="form-label">Nom</label>
-            <input id="nom" class="form-control" name="rep-nom" type="text" placeholder="KEBE" aria-describedby="emailHelp">
+            <input id="nom" class="form-control" name="nom" type="text" placeholder="KEBE" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="telephone" class="form-label">Téléphone</label>
-            <input id="telephone" class="form-control" name="rep-telephone" type="tel" placeholder="777777777" aria-describedby="emailHelp">
+            <input id="telephone" class="form-control" name="telephone" type="tel" placeholder="777777777" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="courier" class="form-label">Mail</label>
-            <input id="courier" class="form-control" name="rep-courier" type="email" placeholder="malickkebe154@gmail.com" aria-describedby="emailHelp">
+            <label for="mail" class="form-label">Mail</label>
+            <input id="mail" class="form-control" name="mail" type="email" placeholder="malickkebe154@gmail.com" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="naiss" class="form-label">Date de naissance</label>
+            <input id="naiss" class="form-control" name="naiss" type="date" placeholder="18-12-2020" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="role" class="form-label">Role de NLF</label>
+            <input id="role" class="form-control" name="role" type="text" placeholder="Secrétaire, Collectionneur" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="pseudo" class="form-label">Pseudo</label>
-            <input id="pseudo" class="form-control" name="cpt-pseudo" type="text" placeholder="milkzo83" aria-describedby="emailHelp">
+            <input id="pseudo" class="form-control" name="pseudo" type="text" placeholder="milkzo83" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="motDePasse" class="form-label">Mot de passe</label>
-            <input name="cpt-motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Entrez votre mot de passe">
+            <input name="motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Entrez votre mot de passe">
         </div>
         <div class="mb-3">
             <label for="motDePasseConfirmation" class="form-label">Confirmer votre mot de passe</label>
-            <input name="cpt-motDePasseConfirmation" type="password" class="form-control" id="motDePasseConfirmation" placeholder="confirmer votre mot de passe">
+            <input name="motDePasseConfirmation" type="password" class="form-control" id="motDePasseConfirmation" placeholder="confirmer votre mot de passe">
         </div>
+
+        <!-- <div class="form-check">
+        <input class="form-check-input" type="radio" name="admin" id="flexRadioDefault1" value="1">
+        <label class="form-check-label" for="flexRadioDefault1">Admin</label>
+        </div> -->
+        <!-- <div class="form-check" style="margin-bottom:30px;">
+        <input class="form-check-input" type="radio" name="admin" id="flexRadioDefault1" value="0">
+        <label class="form-check-label" for="flexRadioDefault2">Pas Admin</label>
+        </div> -->
+
+        <p><label for="admin">Admin ?</label> : <input id="admin" name="admin" type="radio" value="1"> Oui <input id="admin" name="admin" type="radio" value="2"> Non</p>
         <button type="submit" class="btn btn-primary" name="rep-inscription">Ajouter</button>
     </form>
     <nav style="width:155px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;margin-top:25px;">

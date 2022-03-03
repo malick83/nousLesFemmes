@@ -51,15 +51,18 @@ function getAccount($compte)
     return $request;
 }
 
-// function get($compte)
-// {
-//     $request = Database::getPdo()->prepare('SELECT * FROM Nlf_Comptes WHERE cpt_pseudo = :my_pseudo OR cpt_pseudo = :my_mail');
-//     $request->bindValue(":my_pseudo", $compte);
-//     $request->bindValue(":my_mail", $compte);
-//     $request->execute();
-
-//     return $request;
-// }
+function SetAcccout($par1, $par2, $par3)
+{
+    $request = Database::getPdo()->prepare('INSERT INTO Nlf_Comptes(cpt_pseudo, cpt_motDePasse, cpt_admin) VALUES (:param1, :param2, :param3)');
+    $monTableau = 
+    [
+        'param1' => $par1,
+        'param2' => password_hash($par2, PASSWORD_BCRYPT),
+        'param3' => $par3,
+    ];
+    $request->execute($monTableau);
+    return true;
+}
 
 
 
