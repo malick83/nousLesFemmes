@@ -1,0 +1,32 @@
+                        ADRESSE
+Région 1
+Départment 2
+Commune 3
+Quartier/ Village 4
+Siège Social 5  
+
+
+
+                        ENTREPRISE 6
+Nom de l’entreprise
+Coordonnée GPS
+Quelle est la date de création de votre entreprise ?
+Quel est le régime juridique de votre entreprise ?
+registre de commerce
+type
+Dans quels domaines se situent les services de votre entreprise ?
+Page Web
+Quel est le nombre d'employées?
+Ont-ils des contrats formel?
+Existe t-il un organigramme claire et respecté ?
+Existe t-il un dispositif de formation du personnel ? 
+Votre entreprise prend-elle en compte les quotisations sociales et patronale ?
+
+
+
+                        REPONDANT 7
+Nom et Prénom du Répondant
+Fonction du répondant
+tel DU REPONDANT
+Le courriel du répondant
+
