@@ -4,7 +4,7 @@ require_once "../modeles/database.php";
 class Personnes
 {
     protected $_nom;
-    protected $_prenonm;
+    protected $_prenom;
     protected $_telephone;
 
     public function __construct($nom, $prenom, $telephone)
@@ -14,32 +14,36 @@ class Personnes
         $this->_telephone = $telephone;
     }
     
-    public function hello()
+    public function ajouterPersonnes()
     {
-        echo "je suis la personne";
-
+        SetPersons($this->_nom, $this->_prenom, $this->_telephone);
     }
 }
 
-class Employees extends Personnes
+class Employees
 {
     protected $_naiss;
     protected $_role;
+    protected $_pers;
+    protected $_cpt;
 
-    public function __construct($nom, $prenom, $telephone, $naiss, $role)
+    public function __construct($naiss, $role, $pers, $cpt)
     {
-        parent::__construct($nom, $prenom, $telephone);
         $this->_naiss = $naiss;
         $this->_role = $role;
+        $this->_pers = $pers;
+        $this->_cpt = $cpt;
     }
 
     public function ajouterEmp()
     {
-        echo $this->_nom.'</br>';
-        echo $this->_prenom.'</br>';
-        echo $this->_telephone.'</br>';
-        echo $this->_naiss.'</br>';
-        echo $this->_role.'</br>';
+        SetEmployees($this->_naiss, $this->_role, $this->_pers, $this->_cpt);
+        // echo $this->_nom.'</br>';
+        // echo $this->_prenom.'</br>';
+        // echo $this->_telephone.'</br>';
+        // echo $this->_naiss.'</br>';
+        // echo $this->_role.'</br>';
+
     }
 
 }
@@ -69,6 +73,7 @@ class Comptes
         SetAcccout($this->_pseudo, $this->_mail, $this->_motDePasse, $this->_admin);
 
     }
+    
 }
 
 ?>

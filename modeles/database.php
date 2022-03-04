@@ -93,5 +93,48 @@ function SetAcccout($par1, $par2, $par3, $par4)
     return true;
 }
 
+function SetPersons($par1, $par2, $par3)
+{
+    $request = Database::getPdo()->prepare('INSERT INTO Nlf_Personnes(nom, prenom, telephone) VALUES (:param1, :param2, :param3)');
+    $monTableau = 
+    [
+        'param1' => $par1,
+        'param2' => $par2,
+        'param3' => $par3,
+    ];
+    $request->execute($monTableau);
+    return true;
+}
 
+function SetEmployees($par1, $par2, $par3, $par4)
+{
+    $request = Database::getPdo()->prepare('INSERT INTO `Nlf_Employees`(`emp_naiss`, `emp_role`, `emp_pers`, `emp_cpt`) VALUES (:param1, :param2, :param3, :param4)');
+    $monTableau = 
+    [
+        'param1' => $par1,
+        'param2' => $par2,
+        'param3' => $par3,
+        'param4' => $par4,
+    ];
+    $request->execute($monTableau);
+    return true;
+}
+
+
+function DernieriDcpt()
+{
+    $IDcpt = Database::getPdo()->prepare('SELECT LAST_INSERT_ID(id_cpt) FROM Nlf_Comptes');
+    $IDcpt->execute();
+
+    return $IDcpt->fetch(PDO::FETCH_BOTH)[0];
+}
+
+
+function DernieriDpers()
+{
+    $IDpers = Database::getPdo()->prepare('SELECT LAST_INSERT_ID(id) FROM Nlf_Personnes');
+    $IDpers->execute();
+
+    return $IDpers->fetch(PDO::FETCH_BOTH)[0];
+}
 

@@ -12,4 +12,5 @@ init_php_session();
 
 require_once 'controllers/control.php';
 
+
 ?>

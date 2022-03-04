@@ -71,10 +71,16 @@ if(isset($_POST['rep-inscription']))
             echo '<p style="text-align:center;color:red;">Les mots de passes ne correspondent pas</p>';
         else
         {
-            $monEmploye = new Employees($nomPersonne, $prenomPersonne, $telephonePersonne, $mailCpt, $naissEmp, $roleEmp);
-            echo $monEmploye->ajouter();
-            $monCompte = new Comptes($pseudoCpt, $motDePasseCpt, $adminCpt);
-            echo $monCompte->ajouter();
+            $monCompte = new Comptes($pseudoCpt, $mailCpt, $motDePasseCpt, $adminCpt);
+            $monCompte->ajouterAcc();
+            $monIDcpt=DernieriDcpt();
+
+            $maPersonne = new Personnes($nomPersonne, $prenomPersonne, $telephonePersonne);
+            $maPersonne->ajouterPersonnes();
+            $monIDpers=DernieriDpers();
+
+            $monEmploye = new Employees($naissEmp, $roleEmp, $monIDpers, $monIDcpt);
+            $monEmploye->ajouterEmp();
         }
 
     }
