@@ -10,8 +10,6 @@ init_php_session();
 // echo $hash;
 // exit;
 
-
-
 require_once 'controllers/control.php';
 
 ?>

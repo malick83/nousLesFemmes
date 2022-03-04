@@ -32,10 +32,6 @@ ini_set("display_errors", 1);
             <input id="telephone" class="form-control" name="telephone" type="tel" placeholder="777777777" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="mail" class="form-label">Mail</label>
-            <input id="mail" class="form-control" name="mail" type="email" placeholder="malickkebe154@gmail.com" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
             <label for="naiss" class="form-label">Date de naissance</label>
             <input id="naiss" class="form-control" name="naiss" type="date" placeholder="18-12-2020" aria-describedby="emailHelp">
         </div>
@@ -46,6 +42,10 @@ ini_set("display_errors", 1);
         <div class="mb-3">
             <label for="pseudo" class="form-label">Pseudo</label>
             <input id="pseudo" class="form-control" name="pseudo" type="text" placeholder="milkzo83" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="mail" class="form-label">Mail</label>
+            <input id="mail" class="form-control" name="mail" type="email" placeholder="malickkebe154@gmail.com" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="motDePasse" class="form-label">Mot de passe</label>

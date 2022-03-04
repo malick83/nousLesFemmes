@@ -29,9 +29,6 @@ if(isset($_POST['rep-inscription']))
     $telephonePersonneE = !empty($_POST['telephone']);
     $telephonePersonneV = isset($_POST['telephone']);
 
-    $mailPersonneE = isset($_POST['mail']);
-    $mailPersonneV = !empty($_POST['mail']);
-
     $naissEmpE = isset($_POST['naiss']);
     $naissEmpV = !empty($_POST['naiss']);
 
@@ -40,6 +37,9 @@ if(isset($_POST['rep-inscription']))
 
     $pseudoCptE = isset($_POST['pseudo']);
     $pseudoCptV = !empty($_POST['pseudo']);
+
+    $mailCptE = isset($_POST['mail']);
+    $mailCptV = !empty($_POST['mail']);    
 
     $motDePasseCptE = isset($_POST['motDePasse']);
     $motDePasseCptV = !empty($_POST['motDePasse']);
@@ -51,12 +51,12 @@ if(isset($_POST['rep-inscription']))
     $motDePasseConfirmationCptV = !empty($_POST['motDePasseConfirmation']);
 
 
-    if($prenomPersonneE && $prenomPersonneV && $nomPersonneE && $nomPersonneV && $mailPersonneE && $telephonePersonneE && $telephonePersonneV && $mailPersonneV && $naissEmpE &&  $naissEmpV && $roleEmpE && $roleEmpV && $pseudoCptE && $pseudoCptV && $motDePasseCptE && $motDePasseCptV && $motDePasseConfirmationCptE && $motDePasseConfirmationCptV && $adminCptE && $adminCptV)
+    if($prenomPersonneE && $prenomPersonneV && $nomPersonneE && $nomPersonneV && $mailCptE && $telephonePersonneE && $telephonePersonneV && $mailCptV && $naissEmpE &&  $naissEmpV && $roleEmpE && $roleEmpV && $pseudoCptE && $pseudoCptV && $motDePasseCptE && $motDePasseCptV && $motDePasseConfirmationCptE && $motDePasseConfirmationCptV && $adminCptE && $adminCptV)
     {
         $prenomPersonne = $_POST['prenom'];
         $nomPersonne = $_POST['nom'];
         $telephonePersonne = $_POST['telephone'];
-        $mailPersonne = $_POST['mail'];
+        $mailCpt = $_POST['mail'];
         $naissEmp = $_POST['naiss'];
         $roleEmp = $_POST['role'];
         $pseudoCpt = $_POST['pseudo'];
@@ -71,10 +71,10 @@ if(isset($_POST['rep-inscription']))
             echo '<p style="text-align:center;color:red;">Les mots de passes ne correspondent pas</p>';
         else
         {
-            $monEmploye = new Employees($nomPersonne, $prenomPersonne, $telephonePersonne, $mailPersonne, $naissEmp, $roleEmp);
-            echo $monEmploye->hello();
+            $monEmploye = new Employees($nomPersonne, $prenomPersonne, $telephonePersonne, $mailCpt, $naissEmp, $roleEmp);
+            echo $monEmploye->ajouter();
             $monCompte = new Comptes($pseudoCpt, $motDePasseCpt, $adminCpt);
-            echo $monCompte->hello();
+            echo $monCompte->ajouter();
         }
 
     }

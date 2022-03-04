@@ -14,7 +14,20 @@ require_once "../utils/util.php";
     <title>Document</title>
 </head>
 <body>
-    <?=$_SESSION['pseudo']?>
+    <?php
+    
+    echo $_SESSION['pseudo'].'</br>';
+    echo $_SESSION['motDePasse'].'</br>';
+    echo $_SESSION['admin'].'</br>';
+
+    echo $_SESSION['naiss'].'</br>';
+    echo $_SESSION['nom'].'</br>';
+    echo $_SESSION['prenom'].'</br>';
+    echo $_SESSION['telephone'].'</br>';
+    
+    echo $_SESSION['mail'].'</br>';
+    echo $_SESSION['dateCreation'].'</br>';
+    ?>
     </br>
     <a href="/mesProjets/nousLesFemmes/controllers/traitements.php?action=logout">Se déconnecter ?</a></p>
     <a href="/mesProjets/nousLesFemmes/views/inscription.php">Ajouter un Employé</a></p>

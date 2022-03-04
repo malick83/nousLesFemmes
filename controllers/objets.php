@@ -6,14 +6,12 @@ class Personnes
     protected $_nom;
     protected $_prenonm;
     protected $_telephone;
-    protected $_mail;
 
-    public function __construct($nom, $prenom, $telephone, $mail)
+    public function __construct($nom, $prenom, $telephone)
     {
         $this->_nom = $nom;
         $this->_prenom = $prenom;
         $this->_telephone = $telephone;
-        $this->_mail = $mail;
     }
     
     public function hello()
@@ -28,19 +26,18 @@ class Employees extends Personnes
     protected $_naiss;
     protected $_role;
 
-    public function __construct($nom, $prenom, $telephone, $mail, $naiss, $role)
+    public function __construct($nom, $prenom, $telephone, $naiss, $role)
     {
-        parent::__construct($nom, $prenom, $telephone, $mail);
+        parent::__construct($nom, $prenom, $telephone);
         $this->_naiss = $naiss;
         $this->_role = $role;
     }
 
-    public function hello()
+    public function ajouterEmp()
     {
         echo $this->_nom.'</br>';
         echo $this->_prenom.'</br>';
         echo $this->_telephone.'</br>';
-        echo $this->_mail.'</br>';
         echo $this->_naiss.'</br>';
         echo $this->_role.'</br>';
     }
@@ -50,23 +47,26 @@ class Employees extends Personnes
 class Comptes
 {
     protected $_pseudo;
+    protected $_mail;
     protected $_motDePasse;
     protected $_admin;
 
-    public function __construct($pseudo, $motDePasse, $admin)
+    public function __construct($pseudo, $mail, $motDePasse, $admin, )
     {
         $this->_pseudo = $pseudo;
+        $this->_mail = $mail;
         $this->_motDePasse = $motDePasse;
         $this->_admin = $admin;
     }
     
-    public function hello()
+    public function ajouterAcc()
     {
-        echo $this->_pseudo.'</br>';
-        echo $this->_motDePasse.'</br>';
-        echo $this->_admin.'</br>';
+        // echo $this->_pseudo.'</br>';
+        // echo $this->_motDePasse.'</br>';
+        // echo $this->_admin.'</br>';
+        // echo $this->_mail.'</br>';
 
-        SetAcccout($this->_pseudo, $this->_motDePasse, $this->_admin);
+        SetAcccout($this->_pseudo, $this->_mail, $this->_motDePasse, $this->_admin);
 
     }
 }

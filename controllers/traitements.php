@@ -19,15 +19,38 @@ if(isset($_POST['rep-validation']))
         $cptMotDePasse = $_POST['cpt-motDePasse'];
 
         $listUsers = getAccount($cptPseudo)->fetch(PDO::FETCH_ASSOC);
+
+
         if($listUsers && password_verify($cptMotDePasse, $listUsers['cpt_motDePasse']))
-        {
-            
+        {   
             $_SESSION['pseudo'] = $cptPseudo;
+            $_SESSION['motDePasse'] = $cptMotDePasse;
+            $_SESSION['mail'] = $listUsers['cpt_mail'];
+            $_SESSION['dateCreation'] = $listUsers['cpt_dateCreation'];
             $_SESSION['admin'] = $listUsers['cpt_admin'];
+
             if(is_admin())
+            {
+                $listUsersA = getDetailsAdmin($cptPseudo)->fetch(PDO::FETCH_ASSOC);
+
+                $_SESSION['nom'] = $listUsersA['nom'];
+                $_SESSION['prenom'] = $listUsersA['prenom'];
+                $_SESSION['telephone'] = $listUsersA['telephone'];
+                $_SESSION['naiss'] = $listUsersA['admin_naiss'];
                 require('../views/admin.php');
+            }
             else
+            {
+                $listUsersE = getDetailsEmp($cptPseudo)->fetch(PDO::FETCH_ASSOC);
+
+                $_SESSION['nom'] = $listUsersE['nom'];
+                $_SESSION['prenom'] = $listUsersE['prenom'];
+                $_SESSION['telephone'] = $listUsersE['telephone'];
+
+                $_SESSION['naiss'] = $listUsersE['emp_naiss'];
+                $_SESSION['role'] = $listUsersE['emp_role'];
                 require('../views/visiteur.php');
+            }
                 
         }
         else
