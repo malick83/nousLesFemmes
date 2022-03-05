@@ -2,6 +2,7 @@
 error_reporting(-1);
 ini_set("display_errors", 1);
 require_once "../utils/util.php";
+init_php_session();
 
 ?>
 
@@ -14,8 +15,9 @@ require_once "../utils/util.php";
     <title>Document</title>
 </head>
 <body>
-    <?php
-    
+<?php
+if(is_admin())
+{
     echo $_SESSION['pseudo'].'</br>';
     echo $_SESSION['motDePasse'].'</br>';
     echo $_SESSION['admin'].'</br>';
@@ -27,9 +29,15 @@ require_once "../utils/util.php";
     
     echo $_SESSION['mail'].'</br>';
     echo $_SESSION['dateCreation'].'</br>';
-    ?>
-    </br>
-    <a href="/mesProjets/nousLesFemmes/controllers/traitements.php?action=logout">Se déconnecter ?</a></p>
-    <a href="/mesProjets/nousLesFemmes/views/inscription.php">Ajouter un utilisateur</a></p>
+
+    echo '</br>';
+    echo "<a href=\"/mesProjets/nousLesFemmes/views/connexion.php?action=logout\">Se déconnecter ?</a></p>";
+}
+else
+{
+    echo 'Vous n\'êtes pas connecté';
+    echo "<a href=\"/mesProjets/nousLesFemmes/controllers/controlForm.php\">Se Connecter?</a></p>";
+}    
+?>
 </body>
 </html>
