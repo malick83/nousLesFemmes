@@ -22,6 +22,11 @@ CREATE TABLE `Nlf_Personnes`
 );
 
 
+SELECT MAX(id) FROM Nlf_Personnes;
+SELECT LAST_INSERT_ID(id) FROM Nlf_Personnes;
+
+SELECT MAX(id) FROM Nlf_Personnes
+
 
 CREATE TABLE `Nlf_Admin`
 (
@@ -45,6 +50,36 @@ CREATE TABLE `Nlf_Employees`
     CONSTRAINT `FK_emp_cpt` FOREIGN KEY (`emp_cpt`) REFERENCES `Nlf_Comptes`(`id_cpt`)
 );
 
+SELECT * FROM `Nlf_Employees`
+INNER JOIN `Nlf_Personnes` ON `Nlf_Employees`.`emp_pers` = `Nlf_Personnes`.`id`
+INNER JOIN `Nlf_Comptes` ON `Nlf_Employees`.`emp_cpt` = `Nlf_Comptes`.`id_cpt`;
+
+
+
+UPDATE `Nlf_Admin`
+SET `admin_pers` = 11, `admin_cpt` = 16
+WHERE `id_admin` = 2;
+
+DELETE FROM `Nlf_Comptes` WHERE `id_cpt` = 13;
+
+SELECT * FROM `Nlf_Admin`;
+LEFT JOIN `Nlf_Personnes` ON `Nlf_Admin`.`admin_pers` = `Nlf_Personnes`.`id`
+LEFT JOIN `Nlf_Comptes` ON `Nlf_Admin`.`admin_cpt` = `Nlf_Comptes`.`id_cpt`;
+
+
+SELECT * FROM `Nlf_Admin`
+INNER JOIN `Nlf_Personnes` ON `Nlf_Admin`.`admin_pers` = `Nlf_Personnes`.`id`
+INNER JOIN `Nlf_Comptes` ON `Nlf_Admin`.`admin_cpt` = `Nlf_Comptes`.`id_cpt` WHERE `cpt_pseudo` = :my_pseudo OR `cpt_mail` = :my_mail';
+
+SELECT * FROM `Nlf_Admin`
+INNER JOIN `Nlf_Personnes` ON `Nlf_Admin`.`admin_pers` = `Nlf_Personnes`.`id`
+INNER JOIN `Nlf_Comptes` ON `Nlf_Admin`.`admin_cpt` = `Nlf_Comptes`.`id_cpt`;
+
+
+
+
+
+
 
 INSERT INTO `Nlf_Comptes`(`cpt_pseudo`, `cpt_mail`, `cpt_motDePasse`, `cpt_admin`)
 VALUES
@@ -62,6 +97,21 @@ SELECT * FROM Nlf_Personnes;
 
 SELECT * FROM Nlf_Comptes;
 
+SELECT * FROM Nlf_Employees;
+
+SELECT * FROM Nlf_Admin;
+
+SELECT `telephone` FROM Nlf_Personnes;
+
+DELETE FROM `Nlf_Comptes` WHERE `id_cpt` = 13;
+
+SELECT `cpt_mail` FROM Nlf_Comptes;
+
+
+DELETE FROM `Nlf_Comptes` WHERE `id_cpt` = 3;
+
+
+DELETE FROM `Nlf_Personnes` WHERE `id` = 6;
 
 INSERT INTO `Nlf_Personnes`(`nom`, `prenom`, `telephone`)
 VALUES
@@ -102,16 +152,17 @@ INNER JOIN `Nlf_Personnes` ON `Nlf_Admin`.`id_admin` = `Nlf_Personnes`.`id`;
 
 
 
--- SELECT * FROM `Nlf_Admin`
--- INNER JOIN `Nlf_Comptes` ON `Nlf_Admin`.`id_admin` = `Nlf_Comptes`.`id_cpt` WHERE `cpt_pseudo`='milkzo83';
+SELECT * FROM `Nlf_Admin`
+INNER JOIN `Nlf_Comptes` ON `Nlf_Admin`.`id_admin` = `Nlf_Comptes`.`id_cpt` WHERE `cpt_pseudo`='milkzo83';
 
 
--- SELECT * FROM `Nlf_Employees`
--- WHERE `emp_cpt` = ANY
--- (
---     SELECT `id_cpt` FROM `Nlf_Comptes`
---     WHERE `id_cpt` = 2
--- );
+SELECT * FROM `Nlf_Employees`
+WHERE `emp_cpt` = ANY
+(
+    SELECT `id_cpt` FROM `Nlf_Comptes`
+    WHERE `id_cpt` = 2
+);
+
 
 
 

@@ -32,6 +32,9 @@ if(is_admin())
 
     echo '</br>';
     echo "<a href=\"/mesProjets/nousLesFemmes/views/connexion.php?action=logout\">Se déconnecter ?</a></p>";
+
+    echo '</br>';
+    echo "<a href=\"/mesProjets/nousLesFemmes/views/inscription.php\">Ajouter un employer ?</a></p>";
 }
 else
 {

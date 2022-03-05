@@ -1,7 +1,7 @@
 <?php
 error_reporting(-1);
 ini_set("display_errors", 1);
-require_once "../modeles/database.php";
+// require_once "../modeles/database.php";
 require_once "../utils/util.php";
 init_php_session();
 
@@ -14,7 +14,9 @@ if(isset($_POST['rep-validation']))
         $cptPseudo = $_POST['cpt-pseudo'];
         $cptMotDePasse = $_POST['cpt-motDePasse'];
 
-        $listUsers = getAccount($cptPseudo)->fetch(PDO::FETCH_ASSOC);
+
+        require_once "../controllers/comptes.php";
+        $listUsers = GetInfosAccount::getAccount($cptPseudo);
 
 
         if($listUsers && password_verify($cptMotDePasse, $listUsers['cpt_motDePasse']))
@@ -27,7 +29,8 @@ if(isset($_POST['rep-validation']))
 
             if(is_admin())
             {
-                $listUsersA = getDetailsAdmin($cptPseudo)->fetch(PDO::FETCH_ASSOC);
+                require_once "../controllers/admins.php";
+                $listUsersA = GetInfosAdmin::getDetailsAdmin($cptPseudo);
 
                 $_SESSION['nom'] = $listUsersA['nom'];
                 $_SESSION['prenom'] = $listUsersA['prenom'];
@@ -38,7 +41,8 @@ if(isset($_POST['rep-validation']))
             }
             else
             {
-                $listUsersE = getDetailsEmp($cptPseudo)->fetch(PDO::FETCH_ASSOC);
+                require_once "../controllers/employees.php";
+                $listUsersE = GetInfosEmp::getDetailsEmp($cptPseudo);
 
                 $_SESSION['nom'] = $listUsersE['nom'];
                 $_SESSION['prenom'] = $listUsersE['prenom'];
