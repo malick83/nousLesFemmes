@@ -21,4 +21,13 @@ function monDernierID()
 
     return $IDpers->fetch(PDO::FETCH_BOTH)[0];
 }
+
+
+function getEmpTel()
+{
+    $request = Database::getPdo()->prepare('SELECT `telephone` FROM Nlf_Personnes');
+    $request->execute();
+
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>

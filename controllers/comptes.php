@@ -38,6 +38,30 @@ class GetInfosAccount
     }
 }
 
+class VerifyAcc
+{
+    public static function verifyMail($mail)
+    {
+        foreach(getCptMail() as $courrier)
+        {
+            if ($mail == $courrier['cpt_mail'])
+            {
+                return true;
+                break;
+            }
+        }
+    }
 
-
+    public static function verifyPseudo($monPse)
+    {
+        foreach(getCptPseudo() as $pse)
+        {
+            if ($monPse == $pse['cpt_pseudo'])
+            {
+                return true;
+                break;
+            }
+        }
+    }
+}
 ?>

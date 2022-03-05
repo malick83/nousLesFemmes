@@ -33,4 +33,21 @@ function getAcc($compte)
 
     return $request->fetch(PDO::FETCH_ASSOC);
 }
+
+function getCptMail()
+{
+    $request = Database::getPdo()->prepare('SELECT `cpt_mail` FROM Nlf_Comptes');
+    $request->execute();
+
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getCptPseudo()
+{
+    $request = Database::getPdo()->prepare('SELECT `cpt_pseudo` FROM Nlf_Comptes');
+    $request->execute();
+
+    return $request->fetchAll(PDO::FETCH_ASSOC);
+}
+
 ?>

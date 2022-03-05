@@ -40,33 +40,7 @@ class Database
         return self::$instance;
     }
 }
-
-
-function getTelephone()
-{
-    $request = Database::getPdo()->prepare('SELECT `telephone` FROM Nlf_Personnes');
-    $request->execute();
-
-    return $request->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getMail()
-{
-    $request = Database::getPdo()->prepare('SELECT `cpt_mail` FROM Nlf_Comptes');
-    $request->execute();
-
-    return $request->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
-function getPseudo()
-{
-    $request = Database::getPdo()->prepare('SELECT `cpt_pseudo` FROM Nlf_Comptes');
-    $request->execute();
-
-    return $request->fetchAll(PDO::FETCH_ASSOC);
-}
-
+?>
 
 
 

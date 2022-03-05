@@ -27,4 +27,19 @@ class Personnes
 
 }
 
+class VerifyTel
+{
+    public static function verifyTel($num)
+    {
+        foreach(getEmpTel() as $tel)
+        {
+            if ($num == $tel['telephone'])
+            {
+                return true;
+                break;
+            }
+        }
+    }
+}
+
 ?>

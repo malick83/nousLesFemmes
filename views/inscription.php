@@ -2,62 +2,12 @@
 error_reporting(-1);
 ini_set("display_errors", 1);
 
-
-
-require_once "../modeles/database.php";
 error_reporting(-1);
 ini_set("display_errors", 1);
 
+require_once "../controllers/personnes.php";
+require_once "../controllers/comptes.php";
 
-
-function verifyTel($num)
-{
-    foreach(getTelephone() as $tel)
-    {
-        if ($num == $tel['telephone'])
-        {
-            return true;
-            break;
-        }
-    }
-}
-
-
-function verifyMail($mail)
-{
-    foreach(getMail() as $courrier)
-    {
-        if ($mail == $courrier['cpt_mail'])
-        {
-            return true;
-            break;
-        }
-    }
-}
-
-function verifyPseudo($monPse)
-{
-    foreach(getPseudo() as $pse)
-    {
-        if ($monPse == $pse['cpt_pseudo'])
-        {
-            return true;
-            break;
-        }
-    }
-}
-
-// $request = Database::getPdo()->prepare('SELECT * FROM Nlf_Comptes');
-// $request->execute();
-
-// $listUsers = $request->fetchAll(PDO::FETCH_ASSOC);
-
-// foreach($listUsers as $list)
-// {
-//     echo '<pre>';
-//     print_r($list);
-//     echo '</pre>';
-// }
 
 if(isset($_POST['rep-inscription']))
 {
@@ -108,7 +58,7 @@ if(isset($_POST['rep-inscription']))
 
 
 
-        if(($motDePasseCpt !== $motDePasseConfirmationCpt) && verifyTel($telephonePersonne) && verifyMail($mailCpt) && verifyPseudo($pseudoCpt))
+        if(($motDePasseCpt !== $motDePasseConfirmationCpt) && VerifyTel::verifyTel($telephonePersonne) && VerifyAcc::verifyMail($mailCpt) && VerifyAcc::verifyPseudo($pseudoCpt))
 
             echo '<p style="text-align:center;color:red;">VERIFIER VOS DONNÉES !!</p>';
 
@@ -116,15 +66,15 @@ if(isset($_POST['rep-inscription']))
 
             echo '<p style="text-align:center;color:red;">Les mots de passe ne correspondent pas !!</p>';
   
-        elseif(verifyTel($telephonePersonne))
+        elseif(VerifyTel::verifyTel($telephonePersonne))
 
             echo '<p style="text-align:center;color:red;">Ce numéro téléphone existe déjà !!</p>';
   
-        elseif(verifyMail($mailCpt))
+        elseif(VerifyAcc::verifyMail($mailCpt))
 
             echo '<p style="text-align:center;color:red;">Cet adresse mail existe déjà !!</p>';
  
-        elseif(verifyPseudo($pseudoCpt))
+        elseif(VerifyAcc::verifyPseudo($pseudoCpt))
 
             echo '<p style="text-align:center;color:red;">Ce nom d\'utilisateur existe déjà !!</p>';
 
@@ -218,15 +168,6 @@ if(isset($_POST['rep-inscription']))
             <label for="motDePasseConfirmation" class="form-label">Confirmer votre mot de passe</label>
             <input name="motDePasseConfirmation" type="password" class="form-control" id="motDePasseConfirmation" placeholder="confirmer votre mot de passe">
         </div>
-
-        <!-- <div class="form-check">
-        <input class="form-check-input" type="radio" name="admin" id="flexRadioDefault1" value="1">
-        <label class="form-check-label" for="flexRadioDefault1">Admin</label>
-        </div> -->
-        <!-- <div class="form-check" style="margin-bottom:30px;">
-        <input class="form-check-input" type="radio" name="admin" id="flexRadioDefault1" value="0">
-        <label class="form-check-label" for="flexRadioDefault2">Pas Admin</label>
-        </div> -->
 
         <p><label for="admin">Admin ?</label> : <input id="admin" name="admin" type="radio" value="1"> Oui <input id="admin" name="admin" type="radio" value="2"> Non</p>
         <button type="submit" class="btn btn-primary" name="rep-inscription">Ajouter</button>
