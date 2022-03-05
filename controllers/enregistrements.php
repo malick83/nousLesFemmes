@@ -5,6 +5,42 @@ ini_set("display_errors", 1);
 
 require_once "objets.php";
 
+function verifyTel($num)
+{
+    foreach(getTelephone() as $tel)
+    {
+        if ($num == $tel['telephone'])
+        {
+            return true;
+            break;
+        }
+    }
+}
+
+
+function verifyMail($mail)
+{
+    foreach(getMail() as $courrier)
+    {
+        if ($mail == $courrier['cpt_mail'])
+        {
+            return true;
+            break;
+        }
+    }
+}
+
+function verifyPseudo($monPse)
+{
+    foreach(getPseudo() as $pse)
+    {
+        if ($monPse == $pse['cpt_pseudo'])
+        {
+            return true;
+            break;
+        }
+    }
+}
 
 // $request = Database::getPdo()->prepare('SELECT * FROM Nlf_Comptes');
 // $request->execute();
@@ -67,9 +103,27 @@ if(isset($_POST['rep-inscription']))
 
 
 
-        if($motDePasseCpt !== $motDePasseConfirmationCpt)
-            echo '<p style="text-align:center;color:red;">Les mots de passes ne correspondent pas</p>';
-        else
+        if(($motDePasseCpt !== $motDePasseConfirmationCpt) && verifyTel($telephonePersonne) && verifyMail($mailCpt) && verifyPseudo($pseudoCpt))
+
+            echo '<p style="text-align:center;color:red;">VERIFIER VOS DONNÉES !!</p>';
+
+        elseif($motDePasseCpt !== $motDePasseConfirmationCpt)
+
+            echo '<p style="text-align:center;color:red;">Les mots de passe ne correspondent pas !!</p>';
+  
+        elseif(verifyTel($telephonePersonne))
+
+            echo '<p style="text-align:center;color:red;">Ce numéro téléphone existe déjà !!</p>';
+  
+        elseif(verifyMail($mailCpt))
+
+            echo '<p style="text-align:center;color:red;">Cet adresse mail existe déjà !!</p>';
+ 
+        elseif(verifyPseudo($pseudoCpt))
+
+            echo '<p style="text-align:center;color:red;">Ce nom d\'utilisateur existe déjà !!</p>';
+
+        elseif($adminCpt != 1)
         {
             $monCompte = new Comptes($pseudoCpt, $mailCpt, $motDePasseCpt, $adminCpt);
             $monCompte->ajouterAcc();
@@ -82,6 +136,18 @@ if(isset($_POST['rep-inscription']))
             $monEmploye = new Employees($naissEmp, $roleEmp, $monIDpers, $monIDcpt);
             $monEmploye->ajouterEmp();
         }
+        elseif($adminCpt = 1)
+        {
+            $monCompte = new Comptes($pseudoCpt, $mailCpt, $motDePasseCpt, $adminCpt);
+            $monCompte->ajouterAcc();
+            $monIDcpt=DernieriDcpt();
 
+            $maPersonne = new Personnes($nomPersonne, $prenomPersonne, $telephonePersonne);
+            $maPersonne->ajouterPersonnes();
+            $monIDpers=DernieriDpers();
+
+            $monAdmin = new Admins($naissEmp, $monIDpers, $monIDcpt);
+            $monAdmin->ajouterAdmin();
+        }
     }
 }

@@ -20,6 +20,37 @@ class Personnes
     }
 }
 
+
+
+class Admins
+{
+    protected $_naiss;
+    protected $_pers;
+    protected $_cpt;
+
+    public function __construct($naiss, $pers, $cpt)
+    {
+        $this->_naiss = $naiss;
+        $this->_pers = $pers;
+        $this->_cpt = $cpt;
+    }
+
+    public function ajouterAdmin()
+    {
+        SetAdmins($this->_naiss, $this->_pers, $this->_cpt);
+        // echo $this->_nom.'</br>';
+        // echo $this->_prenom.'</br>';
+        // echo $this->_telephone.'</br>';
+        // echo $this->_naiss.'</br>';
+        // echo $this->_role.'</br>';
+        
+
+    }
+
+}
+
+
+
 class Employees
 {
     protected $_naiss;
@@ -43,6 +74,7 @@ class Employees
         // echo $this->_telephone.'</br>';
         // echo $this->_naiss.'</br>';
         // echo $this->_role.'</br>';
+
 
     }
 

@@ -12,7 +12,7 @@ require_once "utils/util.php";
 </head>
     <p>pas de formulaire de connection Admin</p>
     <p><a href="/mesProjets/nousLesFemmes/controllers/traitements.php?action=logout">Se déconnecter ?</a></p>
-    <p><a href="/mesProjets/nousLesFemmes/views/inscription.php">Ajouter un Employé</a></p>
+    <p><a href="/mesProjets/nousLesFemmes/views/inscription.php">Ajouter un utilisateur</a></p>
 
 </body>
 </html>

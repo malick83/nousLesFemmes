@@ -30,6 +30,6 @@ require_once "../utils/util.php";
     ?>
     </br>
     <a href="/mesProjets/nousLesFemmes/controllers/traitements.php?action=logout">Se déconnecter ?</a></p>
-    <a href="/mesProjets/nousLesFemmes/views/inscription.php">Ajouter un Employé</a></p>
+    <a href="/mesProjets/nousLesFemmes/views/inscription.php">Ajouter un utilisateur</a></p>
 </body>
 </html>
