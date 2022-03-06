@@ -1,2 +1,2 @@
 # nousLesFemmes
-C'est un projet de création de site pour un societé "Nous les femmes"
+C'est un projet de création de site pour l'entreprise "Nous les femmes"
