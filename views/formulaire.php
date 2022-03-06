@@ -36,8 +36,8 @@ if(isset($_POST['rep-validation']))
                 $_SESSION['prenom'] = $listUsersA['prenom'];
                 $_SESSION['telephone'] = $listUsersA['telephone'];
                 $_SESSION['naiss'] = $listUsersA['admin_naiss'];
-                header('Location: /mesProjets/nousLesFemmes/controllers/controlForm.php');
-                // require('../views/admin.php');
+                header('Location: /mesProjets/nousLesFemmes/controllers/principalOut.php');
+
             }
             else
             {
@@ -50,8 +50,7 @@ if(isset($_POST['rep-validation']))
 
                 $_SESSION['naiss'] = $listUsersE['emp_naiss'];
                 $_SESSION['role'] = $listUsersE['emp_role'];
-                header('Location: /mesProjets/nousLesFemmes/controllers/controlForm.php');
-                // require('../views/visiteur.php');
+                header('Location: /mesProjets/nousLesFemmes/controllers/principalOut.php');
             }
                 
         }
@@ -60,41 +59,55 @@ if(isset($_POST['rep-validation']))
     }
 ?>
 <?php if(!is_logged()): ?>
-    <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        
-                <title>Page de connexion</title>
-            </head>
-        <body>
-            <h1 style="text-align:center;">Page de connexion</h1>
-        
-            <hr style="width:1050px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
-        
-            <main style="border-radius: 15px 15px 15px 15px;width:600px;margin:auto;box-shadow: 10px 8px 34px 6px rgba(185, 181, 181, 0.685);padding-left:30px;padding-right:30px;padding-top:30px;padding-bottom:30px;">
-                <form method="POST" action="">
-                <div class="mb-3">
-                    <label for="pseudo" class="form-label">Nom utilisateur</label>
-                    <input id="pseudo" class="form-control" name="cpt-pseudo" type="text" placeholder="Entrez votre nom utilisateur" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="motDePasse" class="form-label">Mot de passe</label>
-                    <input name="cpt-motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Entrez votre mot de passe">
-                </div>
-                    <button type="submit" class="btn btn-primary" name="rep-validation">Se connecter</button>
-                </form>
-                <!-- <nav style="width:155px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
-                    <ul style="list-style:none;display: inline-flex;">
-                        <li><a href="/mesProjets/nousLesFemmes/views/inscription.php">&laquo; S'inscrire</a></li>
-                    </ul>
-                </nav> -->
-        </main>
-        </body>
-    </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <title>Page de connexion</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid" style="width: 300px;"> 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item h4 mx-auto">
+            <a class="nav-link" href="#">Nous les femmes</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>
+    <h1 style="text-align:center;">Page de connexion</h1>
+
+    <hr style="width:1050px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
+
+    <main style="border-radius: 15px 15px 15px 15px;width:600px;margin:auto;box-shadow: 10px 8px 34px 6px rgba(185, 181, 181, 0.685);padding-left:30px;padding-right:30px;padding-top:30px;padding-bottom:30px;">
+        <form method="POST" action="">
+        <div class="mb-3">
+            <label for="pseudo" class="form-label">Nom utilisateur</label>
+            <input id="pseudo" class="form-control" name="cpt-pseudo" type="text" placeholder="Entrez votre nom utilisateur" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="motDePasse" class="form-label">Mot de passe</label>
+            <input name="cpt-motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Entrez votre mot de passe">
+        </div>
+            <button type="submit" class="btn btn-primary" name="rep-validation">Se connecter</button>
+        </form>
+        <!-- <nav style="width:155px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
+            <ul style="list-style:none;display: inline-flex;">
+                <li><a href="/mesProjets/nousLesFemmes/views/inscription.php">&laquo; S'inscrire</a></li>
+            </ul>
+        </nav> -->
+    </main>
+</body>
+</html>
 <?php else: ?>
-    <?php header('Location: /mesProjets/nousLesFemmes/controllers/controlForm.php');?>
+    <?php header('Location: /mesProjets/nousLesFemmes/controllers/principalOut.php');?>
 <?php endif; ?>

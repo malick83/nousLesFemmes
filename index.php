@@ -5,12 +5,7 @@ require_once 'utils/util.php';
 init_php_session();
 
 
-// $motdepasse = 'passer1';
-// $hash = password_hash($motdepasse, PASSWORD_BCRYPT, ['cost' => 10]);
-// echo $hash;
-// exit;
-
-require_once 'controllers/control.php';
+require_once 'controllers/principalIn.php';
 
 
 ?>

@@ -93,7 +93,7 @@ if(isset($_POST['rep-inscription']))
             require_once "../controllers/employees.php";
             $monEmploye = new Employees($naissEmp, $roleEmp, $monIDpers, $monIDcpt);
             $monEmploye->ajouterEmp();
-            header('Location: /mesProjets/nousLesFemmes/controllers/controlForm.php');
+            header('Location: /mesProjets/nousLesFemmes/controllers/principalOut.php');
         }
         elseif($adminCpt = 1)
         {
@@ -110,7 +110,7 @@ if(isset($_POST['rep-inscription']))
             require_once "../controllers/admins.php";
             $monAdmin = new Admins($naissEmp, $monIDpers, $monIDcpt);
             $monAdmin->ajouterAdmin();
-            header('Location: /mesProjets/nousLesFemmes/controllers/controlForm.php');
+            header('Location: /mesProjets/nousLesFemmes/controllers/principalOut.php');
         }
     }
 }
@@ -127,6 +127,20 @@ if(isset($_POST['rep-inscription']))
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid" style="width: 300px;"> 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item h4 mx-auto">
+            <a class="nav-link" href="#">Nous les femmes</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>
     <h1 style="text-align:center;">Page d'inscription</h1>
 
     <hr style="width:1050px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">

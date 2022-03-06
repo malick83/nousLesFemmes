@@ -1,7 +1,7 @@
 <?php
 error_reporting(-1);
 ini_set("display_errors", 1);
-require_once "../utils/util.php";
+require_once "utils/util.php";
 
 
 
@@ -10,5 +10,5 @@ if(!is_logged())
 elseif(is_admin())
     header('Location: /mesProjets/nousLesFemmes/views/admin.php');
 else
-    header('Location: /mesProjets/nousLesFemmes/views/visiteur.php');
+    header('Location: /mesProjets/nousLesFemmes/views/employe.php');
 ?>

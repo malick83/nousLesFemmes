@@ -8,7 +8,7 @@ class Comptes
     protected $_motDePasse;
     protected $_admin;
 
-    public function __construct($pseudo, $mail, $motDePasse, $admin, )
+    public function __construct($pseudo, $mail, $motDePasse, $admin)
     {
         $this->_pseudo = $pseudo;
         $this->_mail = $mail;
