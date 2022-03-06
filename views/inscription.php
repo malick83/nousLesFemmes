@@ -135,7 +135,7 @@ if(isset($_POST['rep-inscription']))
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item h4 mx-auto">
-            <a class="nav-link" href="#">Nous les femmes</a>
+            <a class="nav-link" href="/mesProjets/nousLesFemmes/">Nous les femmes</a>
             </li>
         </ul>
         </div>
