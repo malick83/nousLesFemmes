@@ -22,6 +22,7 @@ if(is_admin())
 {
     $title= "<a class=\"nav-link\" href=\"/mesProjets/nousLesFemmes/views/connexion.php?action=logout\">Se déconnecter</a>";
     $ajout= "<a class=\"nav-link\" <a href=\"/mesProjets/nousLesFemmes/views/inscription.php\">Ajouter un employer</a>";
+    $registre= "<a class=\"nav-link\" <a href=\"/mesProjets/nousLesFemmes/views/registre.php\">Faire un enregistrement</a>";
     require_once 'accueilAdmin.php';
 
     echo $_SESSION['pseudo'].'</br>';

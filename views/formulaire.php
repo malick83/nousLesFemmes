@@ -86,26 +86,24 @@ if(isset($_POST['rep-validation']))
 </nav>
     <h1 style="text-align:center;">Page de connexion</h1>
 
-    <hr style="width:1050px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
+    
+    <div class="container">
+        <hr class="row" style="width:350px; margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
+        <div class="row justify-content-md-center">
 
-    <main style="border-radius: 15px 15px 15px 15px;width:600px;margin:auto;box-shadow: 10px 8px 34px 6px rgba(185, 181, 181, 0.685);padding-left:30px;padding-right:30px;padding-top:30px;padding-bottom:30px;">
-        <form method="POST" action="">
-        <div class="mb-3">
-            <label for="pseudo" class="form-label">Nom utilisateur</label>
-            <input id="pseudo" class="form-control" name="cpt-pseudo" type="text" placeholder="Entrez votre nom utilisateur" aria-describedby="emailHelp">
+            <form class="col-md-5 col-xs-2" method="POST" action="" style="border-radius: 15px 15px 15px 15px;box-shadow: 10px 8px 34px 6px rgba(185, 181, 181, 0.685);padding-left:30px;padding-right:30px;padding-top:30px;padding-bottom:30px;">
+            <div class="mb-4">
+                <label for="pseudo" class="form-label">Nom utilisateur</label>
+                <input id="pseudo" class="form-control" name="cpt-pseudo" type="text" placeholder="Entrez votre nom utilisateur" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-4">
+                <label for="motDePasse" class="form-label">Mot de passe</label>
+                <input name="cpt-motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Entrez votre mot de passe">
+            </div>
+                <button type="submit" class="btn btn-primary" name="rep-validation">Se connecter</button>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="motDePasse" class="form-label">Mot de passe</label>
-            <input name="cpt-motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Entrez votre mot de passe">
-        </div>
-            <button type="submit" class="btn btn-primary" name="rep-validation">Se connecter</button>
-        </form>
-        <!-- <nav style="width:155px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
-            <ul style="list-style:none;display: inline-flex;">
-                <li><a href="/mesProjets/nousLesFemmes/views/inscription.php">&laquo; S'inscrire</a></li>
-            </ul>
-        </nav> -->
-    </main>
+    </div>
 </body>
 </html>
 <?php else: ?>

@@ -7,6 +7,7 @@ init_php_session();
 if(is_logged())
 {
     $title= "<a class=\"nav-link\" href=\"/mesProjets/nousLesFemmes/views/connexion.php?action=logout\">Se déconnecter</a>";
+    $registre= "<a class=\"nav-link\" <a href=\"/mesProjets/nousLesFemmes/views/registre.php\">Faire un enregistrement</a>";
     require_once 'accueilEmp.php';
 
     echo $_SESSION['pseudo'].'</br>';
