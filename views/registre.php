@@ -12,7 +12,7 @@ init_php_session();
 
 
 
-if(isset($_POST['rep-inscription']))
+if(isset($_POST['rep-registre']))
 {
     $prenomPersonneE = isset($_POST['prenom']);
     $prenomPersonneV = !empty($_POST['prenom']);
@@ -175,48 +175,162 @@ if(isset($_POST['rep-inscription']))
     <hr class="row" style="width:350px; margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
     <div class="row justify-content-md-center">
         <!-- <hr style="width:1050px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;"> -->
-        <form class="col-md-5 col-xs-2" method="POST" action="" style="border-radius: 15px 15px 15px 15px;margin:auto;box-shadow: 10px 8px 34px 6px rgba(185, 181, 181, 0.685);padding-left:30px;padding-right:30px;padding-top:30px;padding-bottom:30px;">
+        <form id="id_form" class="col-md-8 col-xs-2" method="POST" action="" style="border-radius: 15px 15px 15px 15px;margin:auto;box-shadow: 10px 8px 34px 6px rgba(185, 181, 181, 0.685);padding-left:30px;padding-right:30px;padding-top:30px;padding-bottom:30px;">
             <div class="mb-4">
-                <label for="prenom" class="form-label">Prénom</label>
+                <label for="prenom" class="form-label">Prénom du répondant</label>
                 <input id="prenom" class="form-control" name="prenom" type="text" placeholder="Malick" aria-describedby="emailHelp">
             </div>
             <div class="mb-4">
-                <label for="nom" class="form-label">Nom</label>
+                <label for="nom" class="form-label">Nom du répondant</label>
                 <input id="nom" class="form-control" name="nom" type="text" placeholder="KEBE" aria-describedby="emailHelp">
             </div>
             <div class="mb-4">
-                <label for="telephone" class="form-label">Téléphone</label>
+                <label for="telephone" class="form-label">Téléphone du répondant</label>
                 <input id="telephone" class="form-control" name="telephone" type="tel" placeholder="777777777" aria-describedby="emailHelp">
             </div>
             <div class="mb-4">
-                <label for="naiss" class="form-label">Date de naissance</label>
-                <input id="naiss" class="form-control" name="naiss" type="date" placeholder="18-12-2020" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-4">
-                <label for="role" class="form-label">Role de NLF</label>
-                <input id="role" class="form-control" name="role" type="text" placeholder="Secrétaire, Collectionneur" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-4">
-                <label for="pseudo" class="form-label">Pseudo</label>
-                <input id="pseudo" class="form-control" name="pseudo" type="text" placeholder="milkzo83" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-4">
-                <label for="mail" class="form-label">Mail</label>
+                <label for="mail" class="form-label">Mail du répondant</label>
                 <input id="mail" class="form-control" name="mail" type="email" placeholder="malickkebe154@gmail.com" aria-describedby="emailHelp">
             </div>
             <div class="mb-4">
-                <label for="motDePasse" class="form-label">Mot de passe</label>
-                <input name="motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Entrez votre mot de passe">
+                <label for="nomEnt" class="form-label">Nom entreprise</label>
+                <input id="nomEnt" class="form-control" name="nomEnt" type="text" placeholder="PATISEN" aria-describedby="emailHelp">
             </div>
+            
             <div class="mb-4">
-                <label for="motDePasseConfirmation" class="form-label">Confirmer votre mot de passe</label>
-                <input name="motDePasseConfirmation" type="password" class="form-control" id="motDePasseConfirmation" placeholder="confirmer votre mot de passe">
+                <label for="coorEnt" class="form-label">Coordonnées GPS de l'entreprise</label>
+                <input id="coorEnt" class="form-control" name="coorEnt" type="text" placeholder="Boulevard Canal VI" aria-describedby="emailHelp">
             </div>
 
-            <p><label for="admin">Admin ?</label> : <input id="admin" name="admin" type="radio" value="1"> Oui <input id="admin" name="admin" type="radio" value="2"> Non</p>
-            <button type="submit" class="btn btn-primary" name="rep-inscription">Ajouter</button>
-        </form>
-    </div>
+            <div class="mb-4">
+                <label for="creationEnt" class="form-label">Date création</label>
+                <input id="creationEnt" class="form-control" name="creationEnt" type="date" placeholder="18-12-2020" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-4">
+                <label for="regimeJEnt" class="form-label">Régime juridique</label>
+                <p>
+                <select form="id_form" name="regimeJEnt" size="1">
+                    <option value="selectionner">selectionner--</option>
+                    <option value="GIE">GIE</option>
+                    <option value="SA">SA</option>
+                    <option value="SARL">SARL</option>
+                    <option value="SUARL">SUARL</option>
+                    <option value="EI">EI</option>
+                </select>
+                </p>
+            </div>
+
+            <div class="mb-4">
+                <label for="registreEnt" class="form-label">Registre de commerce</label>
+                <input id="registreEnt" class="form-control" name="registreEnt" type="text" placeholder="37384638343" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-4">
+                <label for="typeEnt">type ?</label> : <input id="typeEnt" name="typeEnt" type="radio" value="1"> Oui <input id="typeEnt" name="typeEnt" type="radio" value="2"> Non
+            </div>
+            <div class="mb-4">
+                <label for="secteurEnt" class="form-label">Secteur d'activité</label>
+                <p>
+                <select form="id_form" name="secteurEnt" size="1">
+                    <option value="selectionner">selectionner--</option>
+                    <option value="Commerce(C)">Commerce(C)</option>
+                    <option value="Commerce de motocyclette et accessoires(C.1.1)">Commerce de motocyclette et accessoires(C.1.1)</option>
+                    <option value="Commerce en magasinage(C.2)">Commerce en magasinage(C.2)</option>
+                </select>
+                </p>
+            </div>            
+            <div class="mb-4">
+                <label for="pageWebEnt" class="form-label">Page Web de l'entreprise</label>
+                <input id="pageWebEnt" class="form-control" name="pageWebEnt" type="text" placeholder="https://patisen.sn" aria-describedby="emailHelp">
+            </div>
+            
+            <div class="mb-4">
+            <label for="nombreEmpEnt" class="form-label">Nombre employer</label>
+                <p>
+                <select form="id_form" name="nombreEmpEnt" size="1">
+                    <option value="selectionner">selectionner--</option>
+                    <option value="0">0</option>
+                    <option value="<5">&lt;5</option>
+                    <option value="5 à 10">5 à 10</option>
+                    <option value="10 à 20">10 à 20</option>
+                    <option value="=20">=20</option>
+                </select>
+                </p>
+            </div>
+
+            <div class="mb-4">
+                <label for="contratEnt">Contrat Formel ?</label> : <input id="contratEnt" name="contratEnt" type="radio" value="1"> Oui <input id="contratEnt" name="contratEnt" type="radio" value="2"> Non
+            </div>
+            <div class="mb-4">
+                <label for="organiEnt">organigramme ?</label> : <input id="organiEnt" name="organiEnt" type="radio" value="1"> Oui <input id="organiEnt" name="organiEnt" type="radio" value="2"> Non       
+            </div>
+            <div class="mb-4">
+                <label for="dispositifFEnt">dispositif de formation ?</label> : <input id="dispositifFEnt" name="dispositifFEnt" type="radio" value="1"> Oui <input id="dispositifFEnt" name="dispositifFEnt" type="radio" value="2"> Non
+            </div>
+
+            <div class="mb-4">
+            <label for="cotSEnt" class="form-label">Cotisation sociale</label>
+                <p>
+                <select form="id_form" name="cotSEnt" size="1">
+                    <option value="selectionner">selectionner--</option>
+                    <option value="Oui">Oui</option>
+                    <option value="Non">Non</option>
+                    <option value="Partiellement">Partiellement</option>
+                </select>
+                </p>
+            </div>
+
+            <div class="mb-4">
+                <label for="nomSiegeEnt" class="form-label">Nom du siège</label>
+                <input id="nomSiegeEnt" class="form-control" name="nomSiegeEnt" type="text" placeholder="le Hangar" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-4">
+                <label for="quartierEnt" class="form-label">Nom du quartier</label>
+                <input id="quartierEnt" class="form-control" name="quartierEnt" type="text" placeholder="HML" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-4">
+            <label for="regEnt" class="form-label">Région</label>
+                <p>
+                <select form="id_form" name="regEnt" size="1">
+                    <option value="selectionner">selectionner--</option>
+                    <option value="Louga">Louga</option>
+                    <option value="Dakar">Dakar</option>
+                    <option value="Fatick">Fatick</option>
+                </select>
+                </p>
+            </div>
+
+            <div class="mb-4">
+            <label for="dptEnt" class="form-label">Département</label>
+                <p>
+                <select form="id_form" name="dptEnt" size="1">
+                    <option value="selectionner">selectionner--</option>
+                    <option value="KÉBÉMER">KÉBÉMER</option>
+                    <option value="Linguère">Linguère</option>
+                    <option value="Louga">Louga</option>
+                </select>
+                </p>
+            </div>
+
+            <div class="mb-4">
+            <label for="comEnt" class="form-label">Commune</label>
+                <p>
+                <select form="id_form" name="comEnt" size="1">
+                    <option value="selectionner">selectionner--</option>
+                    <option value="KÉBÉMER">KÉBÉMER</option>
+                    <option value="Ndande">Ndande</option>
+                </select>
+                </p>
+            </div>
+
+            <div class="row mb-4" style="width:150px;margin:auto;margin-bottom:80px;margin-top:20px">
+                <button type="submit" class="btn btn-primary" name="rep-registre">Enregistrer</button>
+            </div>
+        </form> 
+    </div> 
     <nav class="row" style="width:155px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;margin-top:25px;">
         <ul style="list-style:none;display: inline-flex;">
             <li><a href="/mesProjets/nousLesFemmes/" >&laquo; Mon compte</a></li>
