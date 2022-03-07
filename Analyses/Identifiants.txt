@@ -1,0 +1,7 @@
+Un Compte administrateur
+nom utilisateur : milkzo83
+mot de passe : passer
+
+Un Compte employé
+nom utilisateur : zall83
+mot de passe : passer1
