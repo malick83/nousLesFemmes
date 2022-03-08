@@ -16,5 +16,9 @@ class Repondants
     {
         SetRepondants($this->_mail, $this->_pers);
     }
+    public function DernieriDrep()
+    {
+        return monDernierRepID();
+    }
 
 }

@@ -12,3 +12,11 @@ function SetRepondants($par1, $par2)
     $request->execute($monTableau);
     return true;
 }
+
+function monDernierRepID()
+{
+    $IDReppers = Database::getPdo()->prepare('SELECT MAX(LAST_INSERT_ID(id_rep)) FROM Nlf_Repondants');
+    $IDReppers->execute();
+
+    return $IDReppers->fetch(PDO::FETCH_BOTH)[0];
+}

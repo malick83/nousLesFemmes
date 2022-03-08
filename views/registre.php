@@ -128,6 +128,7 @@ if(isset($_POST['rep-registre']))
             require_once "../controllers/repondants.php";
             $monRepondant = new Repondants($mailRepondant, $monIDpers);
             $monRepondant->ajouterRep();
+            $monIdRep = $monRepondant->DernieriDrep();
 
             require_once "../controllers/quartiers.php";
             require_once "../controllers/communes.php";
@@ -141,6 +142,11 @@ if(isset($_POST['rep-registre']))
             require_once "../controllers/sieges.php";
             $monSiege = new Sieges($nomSiegeEnt, $monIDqrt);
             $monSiege->ajouterSg();
+            $monIDsg=$monSiege->DernieriDsg();
+
+            require_once "../controllers/entreprises.php";
+            $monEntreprise = new Entreprises($nomEnt, $coorEnt, $creationEnt, $regimeJEnt, $registreEnt, $typeEnt, $secteurEnt, $pageWebEnt, $nombreEmpEnt, $contratEnt, $organiEnt, $dispositifFEnt, $cotSEnt, $monIdRep, $monIDsg);
+            $monEntreprise->ajouterEnt();
 
 
         }

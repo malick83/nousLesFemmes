@@ -16,5 +16,9 @@ class Sieges
     {
         SetSieges($this->_nom, $this->_quartier);
     }
+    public function DernieriDsg()
+    {
+        return DernierSgid();
+    }
 
 }
