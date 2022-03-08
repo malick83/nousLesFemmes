@@ -65,6 +65,10 @@ VALUES
 
 SELECT * FROM `Nlf_Personnes`;
 
+SELECT * FROM `Nlf_Repondants`;
+
+SELECT * FROM `Nlf_Sieges`;
+
 
 SELECT rep_mail, nom, prenom, telephone FROM `Nlf_Repondants`
 inner join Nlf_Personnes on `Nlf_Repondants`.`rep_pers`=`Nlf_Personnes`.`id`;
@@ -76,6 +80,8 @@ inner join Nlf_Personnes on `Nlf_Repondants`.`rep_pers`=`Nlf_Personnes`.`id`;
 INSERT INTO `Nlf_Repondants`(`rep_mail`, `rep_pers`)
 VALUES
 ('rokhydaaba@gmail.com', 18);
+
+DELETE FROM `Nlf_Sieges` WHERE `id_sg` = 3;
 
 CREATE TABLE `Nlf_Regions`
 (
@@ -109,8 +115,14 @@ VALUES
 ('Guédiawaye', 2),
 ('Dakar', 2);
 
+INSERT INTO `Nlf_Departements`(`dpt_nom`, `dpt_reg`)
+VALUES
+('Fatick', 3),
+('Gossas', 3),
+('Foundiougne', 3);
 
-SELECT `id_dpt`, `dpt_nom` FROM `Nlf_Departements`
+
+SELECT `id_com` FROM `Nlf_Communes` WHERE `com_nom`='KÉBÉMER';
 
 CREATE TABLE `Nlf_Communes`
 (
@@ -125,6 +137,17 @@ VALUES
 ('KÉBÉMER', 1),
 ('Ndande', 1);
 
+UPDATE `Nlf_Communes`
+SET `com_nom` = 'Guéoul'
+WHERE `id_com` = 2;
+
+SELECT * FROM `Nlf_Communes`;
+
+INSERT INTO `Nlf_Communes`(`com_nom`, `com_dpt`)
+VALUES
+('Ouakam', 7),
+('Yoff', 7),
+('Passy', 8);
 
 
 CREATE TABLE `Nlf_Quartiers`

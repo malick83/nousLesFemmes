@@ -324,10 +324,10 @@ if(isset($_POST['rep-registre']))
             <label for="regEnt" class="form-label">Région</label>
                 <p>
                 <select form="id_form" name="regEnt" size="1">
-                    <option value="selectionner">selectionner--</option>
+                    <option id="sel" value="selectionner">selectionner--</option>
                     <option id="louga" value="Louga">Louga</option>
-                    <option value="Dakar">Dakar</option>
-                    <option value="Fatick">Fatick</option>
+                    <option id="dakar" value="Dakar">Dakar</option>
+                    <option id="fatick" value="Fatick">Fatick</option>
                 </select>
                 </p>
             </div>
@@ -336,10 +336,17 @@ if(isset($_POST['rep-registre']))
             <label for="dptEnt" class="form-label">Département</label>
                 <p>
                 <select form="id_form" name="dptEnt" size="1">
-                    <option value="selectionner">selectionner--</option>
-                    <option value="KÉBÉMER">KÉBÉMER</option>
-                    <option value="Linguère">Linguère</option>
-                    <option value="Louga">Louga</option>
+                    <option id="selection" value="selectionner">selectionner--</option>
+                    <option class="masqueDptlg" style="display:none;" value="KÉBÉMER">KÉBÉMER</option>
+                    <option class="masqueDptlg" style="display:none;" value="Linguère">Linguère</option>
+                    <option class="masqueDptlg" style="display:none;" value="Louga">Louga</option>
+                    <option class="masqueDptdk" style="display:none;" value="Dakar">Dakar</option>
+                    <option class="masqueDptdk" style="display:none;" value="Pikine">Pikine</option>
+                    <option class="masqueDptdk" style="display:none;" value="Rufisque">Rufisque</option>
+                    <option class="masqueDptdk" style="display:none;" value="Guédiawaye">Guédiawaye</option>
+                    <option class="masqueDptft" style="display:none;" value="Fatick">Fatick</option>
+                    <option class="masqueDptft" style="display:none;" value="Gossas">Gossas</option>
+                    <option class="masqueDptft" style="display:none;" value="Foundiougne">Foundiougne</option>                    
                 </select>
                 </p>
             </div>
@@ -348,9 +355,12 @@ if(isset($_POST['rep-registre']))
             <label for="comEnt" class="form-label">Commune</label>
                 <p>
                 <select form="id_form" name="comEnt" size="1">
-                    <option value="selectionner">selectionner--</option>
-                    <option value="KÉBÉMER">KÉBÉMER</option>
-                    <option value="Ndande">Ndande</option>
+                    <option id="selectionCom" value="selectionner">selectionner--</option>
+                    <option class="masqueComlg" style="display:none;" value="KÉBÉMER">KÉBÉMER</option>
+                    <option class="masqueComlg" style="display:none;" value="Guéoul">Guéoul</option>
+                    <option class="masqueComdk" style="display:none;" value="Ouakam">Ouakam</option>
+                    <option class="masqueComdk" style="display:none;" value="Yoff">Yoff</option>
+                    <option class="masqueComft" style="display:none;" value="Passy">Passy</option>
                 </select>
                 </p>
             </div>
