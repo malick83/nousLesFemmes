@@ -23,102 +23,128 @@ if(isset($_POST['rep-registre']))
     $telephonePersonneE = !empty($_POST['telephone']);
     $telephonePersonneV = isset($_POST['telephone']);
 
-    $naissEmpE = isset($_POST['naiss']);
-    $naissEmpV = !empty($_POST['naiss']);
 
-    $roleEmpE = isset($_POST['role']);
-    $roleEmpV = !empty($_POST['role']);
+    $mailRepondantE = isset($_POST['mail']);
+    $mailRepondantV = !empty($_POST['mail']);    
 
-    $pseudoCptE = isset($_POST['pseudo']);
-    $pseudoCptV = !empty($_POST['pseudo']);
+// 
 
-    $mailCptE = isset($_POST['mail']);
-    $mailCptV = !empty($_POST['mail']);    
+    $nomEntE = isset($_POST['nomEnt']);
+    $nomEntV = !empty($_POST['nomEnt']);
 
-    $motDePasseCptE = isset($_POST['motDePasse']);
-    $motDePasseCptV = !empty($_POST['motDePasse']);
+    $coorEntE = isset($_POST['coorEnt']);
+    $coorEntV = !empty($_POST['coorEnt']);
 
-    $adminCptE = isset($_POST['admin']);
-    $adminCptV = !empty($_POST['admin']);
+    $creationEntE = isset($_POST['creationEnt']);
+    $creationEntV = !empty($_POST['creationEnt']);
 
-    $motDePasseConfirmationCptE = isset($_POST['motDePasseConfirmation']);
-    $motDePasseConfirmationCptV = !empty($_POST['motDePasseConfirmation']);
+    $regimeJEntE = isset($_POST['regimeJEnt']);
+    $regimeJEntV = !empty($_POST['regimeJEnt']);
+
+    $registreEntE = isset($_POST['registreEnt']);
+    $registreEntV = !empty($_POST['registreEnt']);    
+
+    // arret
+    $typeEntE = isset($_POST['typeEnt']);
+    $typeEntV = !empty($_POST['typeEnt']);  
+
+    $secteurEntE = isset($_POST['secteurEnt']);
+    $secteurEntV = !empty($_POST['secteurEnt']); 
+
+    $pageWebEntE = isset($_POST['pageWebEnt']);
+    $pageWebEntV = !empty($_POST['pageWebEnt']); 
+
+    $nombreEmpEntE = isset($_POST['nombreEmpEnt']);
+    $nombreEmpEntV = !empty($_POST['nombreEmpEnt']); 
+
+    $contratEntE = isset($_POST['contratEnt']);
+    $contratEntV = !empty($_POST['contratEnt']);
+
+    $organiEntE = isset($_POST['organiEnt']);
+    $organiEntV = !empty($_POST['organiEnt']);
+    
+    $dispositifFEntE = isset($_POST['dispositifFEnt']);
+    $dispositifFEntV = !empty($_POST['dispositifFEnt']); 
+
+    $cotSEntE = isset($_POST['cotSEnt']);
+    $cotSEntV = !empty($_POST['cotSEnt']); 
+
+    $nomSiegeEntE = isset($_POST['nomSiegeEnt']);
+    $nomSiegeEntV = !empty($_POST['nomSiegeEnt']); 
 
 
-    if($prenomPersonneE && $prenomPersonneV && $nomPersonneE && $nomPersonneV && $mailCptE && $telephonePersonneE && $telephonePersonneV && $mailCptV && $naissEmpE &&  $naissEmpV && $roleEmpE && $roleEmpV && $pseudoCptE && $pseudoCptV && $motDePasseCptE && $motDePasseCptV && $motDePasseConfirmationCptE && $motDePasseConfirmationCptV && $adminCptE && $adminCptV)
-    {
-        $prenomPersonne = $_POST['prenom'];
-        $nomPersonne = $_POST['nom'];
-        $telephonePersonne = $_POST['telephone'];
-        $mailCpt = $_POST['mail'];
-        $naissEmp = $_POST['naiss'];
-        $roleEmp = $_POST['role'];
-        $pseudoCpt = $_POST['pseudo'];
-        $motDePasseCpt = $_POST['motDePasse'];
-        $adminCpt = $_POST['admin'];
+    $quartierEntE = isset($_POST['quartierEnt']);
+    $quartierEntV = !empty($_POST['quartierEnt']);
 
-        $motDePasseConfirmationCpt = $_POST['motDePasseConfirmation'];
+    $regEntE = isset($_POST['regEnt']);
+    $regEntV = !empty($_POST['regEnt']);
+
+    $dptEntE = isset($_POST['dptEnt']);
+    $dptEntV = !empty($_POST['dptEnt']);
+
+    $comEntE = isset($_POST['comEnt']);
+    $comEntV = !empty($_POST['comEnt']);
 
 
-
-        if(($motDePasseCpt !== $motDePasseConfirmationCpt) && VerifyTel::verifyTel($telephonePersonne) && VerifyAcc::verifyMail($mailCpt) && VerifyAcc::verifyPseudo($pseudoCpt))
-
-            echo '<p style="text-align:center;color:red;">VERIFIER VOS DONNÉES !!</p>';
-
-        elseif($motDePasseCpt !== $motDePasseConfirmationCpt)
-
-            echo '<p style="text-align:center;color:red;">Les mots de passe ne correspondent pas !!</p>';
-  
-        elseif(VerifyTel::verifyTel($telephonePersonne))
-
-            echo '<p style="text-align:center;color:red;">Ce numéro téléphone existe déjà !!</p>';
-  
-        elseif(VerifyAcc::verifyMail($mailCpt))
-
-            echo '<p style="text-align:center;color:red;">Cet adresse mail existe déjà !!</p>';
- 
-        elseif(VerifyAcc::verifyPseudo($pseudoCpt))
-
-            echo '<p style="text-align:center;color:red;">Ce nom d\'utilisateur existe déjà !!</p>';
-
-        elseif($adminCpt != 1)
+    if($prenomPersonneE && $prenomPersonneV && $nomPersonneE && $nomPersonneV && $telephonePersonneE && $telephonePersonneV && $mailRepondantE && $mailRepondantV && $nomEntE && $nomEntV && $coorEntE && $coorEntV && $creationEntE && $creationEntV && $regimeJEntE && $regimeJEntV && $registreEntE && $registreEntV && $typeEntE && $typeEntV && $secteurEntE &&$secteurEntV && $pageWebEntE && $pageWebEntV && $nombreEmpEntE && $nombreEmpEntV && $contratEntE && $contratEntV && $organiEntE && $organiEntV && $dispositifFEntE && $dispositifFEntV && $cotSEntE && $cotSEntV && $nomSiegeEntE && $nomSiegeEntV && $quartierEntE && $quartierEntV && $regEntE && $regEntV && $dptEntE && $dptEntV && $comEntE && $comEntV)
         {
-            require_once "../controllers/comptes.php";
-            $monCompte = new Comptes($pseudoCpt, $mailCpt, $motDePasseCpt, $adminCpt);
-            $monCompte->ajouterAcc();
-            $monIDcpt=$monCompte->DernieriDcpt();
+            $prenomPersonne = $_POST['prenom'];
+            $nomPersonne = $_POST['nom'];
+            $telephonePersonne = $_POST['telephone'];
+            $mailRepondant = $_POST['mail'];   
+            $nomEnt = $_POST['nomEnt'];
+            $coorEnt = $_POST['coorEnt'];
+            $creationEnt = $_POST['creationEnt'];
+            $regimeJEnt = $_POST['regimeJEnt'];
+            $registreEnt = $_POST['registreEnt'];
+            $typeEnt = $_POST['typeEnt'];
+            $secteurEnt = $_POST['secteurEnt'];
+            $pageWebEnt = $_POST['pageWebEnt'];
+            $nombreEmpEnt = $_POST['nombreEmpEnt'];
+            $contratEnt = $_POST['contratEnt'];
+            $organiEnt = $_POST['organiEnt'];
+            $dispositifFEnt = $_POST['dispositifFEnt'];
+            $cotSEnt = $_POST['cotSEnt'];
+            $nomSiegeEnt = $_POST['nomSiegeEnt'];
+            $quartierEnt = $_POST['quartierEnt'];
+            $regEnt = $_POST['regEnt'];
+            $dptEnt = $_POST['dptEnt'];
+            $comEnt = $_POST['comEnt'];
+            echo '<div style="margin-top:100px;">';
+            echo $prenomPersonne.'</br>';
+            echo $nomPersonne.'</br>';
+            echo $dptEnt.'</br>';
+            echo $pageWebEnt.'</br>';
+            echo $regimeJEnt.'</br>';
+            echo $nombreEmpEnt.'</br>';
+            echo $contratEnt.'</br>';
+            echo '</div>';
 
             require_once "../controllers/personnes.php";
             $maPersonne = new Personnes($nomPersonne, $prenomPersonne, $telephonePersonne);
             $maPersonne->ajouterPersonnes();
             $monIDpers=$maPersonne->DernieriDpers();
 
-            require_once "../controllers/employees.php";
-            $monEmploye = new Employees($naissEmp, $roleEmp, $monIDpers, $monIDcpt);
-            $monEmploye->ajouterEmp();
-            header('Location: /mesProjets/nousLesFemmes/controllers/principalOut.php');
-        }
-        elseif($adminCpt = 1)
-        {
-            require_once "../controllers/comptes.php";
-            $monCompte = new Comptes($pseudoCpt, $mailCpt, $motDePasseCpt, $adminCpt);
-            $monCompte->ajouterAcc();
-            $monIDcpt=$monCompte->DernieriDcpt();
+            require_once "../controllers/repondants.php";
+            $monRepondant = new Repondants($mailRepondant, $monIDpers);
+            $monRepondant->ajouterRep();
 
-            require_once "../controllers/personnes.php";
-            $maPersonne = new Personnes($nomPersonne, $prenomPersonne, $telephonePersonne);
-            $maPersonne->ajouterPersonnes();
-            $monIDpers=$maPersonne->DernieriDpers();
+            require_once "../controllers/quartiers.php";
+            require_once "../controllers/communes.php";
+            $idCom=GetInfosCommunes::getID($comEnt);
 
-            require_once "../controllers/admins.php";
-            $monAdmin = new Admins($naissEmp, $monIDpers, $monIDcpt);
-            $monAdmin->ajouterAdmin();
-            header('Location: /mesProjets/nousLesFemmes/controllers/principalOut.php');
+            $monQuartier = new Quartiers($quartierEnt, $idCom);
+            $monQuartier->ajouterQrt();
+            $monIDqrt=$monQuartier->DernieriDqtr();
+
+            // 
+            require_once "../controllers/sieges.php";
+            $monSiege = new Sieges($nomSiegeEnt, $monIDqrt);
+            $monSiege->ajouterSg();
+
+
         }
-    }
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -127,11 +153,13 @@ if(isset($_POST['rep-registre']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/mesProjets/nousLesFemmes/utils/main.js" defer></script>
 </head>
 <body>
 <?php if(is_admin()): ?>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="row navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid" style="width: 800px;"> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -152,7 +180,7 @@ if(isset($_POST['rep-registre']))
         </div>
     </nav>
 <?php elseif(is_logged()): ?>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="row navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid" style="width: 450px;"> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -170,7 +198,8 @@ if(isset($_POST['rep-registre']))
         </div>
     </nav>
 <?php endif; ?>
-<h1 style="text-align:center;">Page d'enregistrement</h1>
+
+<h1 style="text-align:center;margin-top:100px;">Page d'enregistrement</h1>
 <div class="container">
     <hr class="row" style="width:350px; margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
     <div class="row justify-content-md-center">
@@ -296,7 +325,7 @@ if(isset($_POST['rep-registre']))
                 <p>
                 <select form="id_form" name="regEnt" size="1">
                     <option value="selectionner">selectionner--</option>
-                    <option value="Louga">Louga</option>
+                    <option id="louga" value="Louga">Louga</option>
                     <option value="Dakar">Dakar</option>
                     <option value="Fatick">Fatick</option>
                 </select>

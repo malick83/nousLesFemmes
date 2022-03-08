@@ -63,6 +63,15 @@ INSERT INTO `Nlf_Personnes`(`nom`, `prenom`, `telephone`)
 VALUES
 ('GUEYE', 'Rokhaya', '750981209');
 
+SELECT * FROM `Nlf_Personnes`;
+
+
+SELECT rep_mail, nom, prenom, telephone FROM `Nlf_Repondants`
+inner join Nlf_Personnes on `Nlf_Repondants`.`rep_pers`=`Nlf_Personnes`.`id`;
+
+
+
+
 
 INSERT INTO `Nlf_Repondants`(`rep_mail`, `rep_pers`)
 VALUES
@@ -100,6 +109,8 @@ VALUES
 ('Guédiawaye', 2),
 ('Dakar', 2);
 
+
+SELECT `id_dpt`, `dpt_nom` FROM `Nlf_Departements`
 
 CREATE TABLE `Nlf_Communes`
 (
@@ -145,6 +156,7 @@ INSERT INTO `Nlf_Sieges`(`sg_nom`, `sg_quartier`)
 VALUES
 ('myCompany', 1),
 ('theStore', 1);
+
 
 
 CREATE TABLE `Nlf_Entreprises`
