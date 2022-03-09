@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-bottom: 30px;">
-  <div class="container-fluid mx-auto" style="width: 750px;">
+  <div class="container-fluid mx-auto" style="width: 1000px;">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,14 +19,13 @@
       <a class="nav-link h5" href="/mesProjets/nousLesFemmes/">Nous les femmes</a>
         <li class="nav-item h4">
             <?=$title?>
-          <!-- <a class="nav-link" href="#">Features</a> -->
         </li>
-
+        <li class="nav-item h4">
+            <?=$ajout=null?>
+        </li>
         <li class="nav-item h4">
             <?=$registre?>
-          <!-- <a class="nav-link" href="#">Features</a> -->
         </li>
-
       </ul>
     </div>
   </div>

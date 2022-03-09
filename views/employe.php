@@ -8,7 +8,7 @@ if(is_logged())
 {
     $title= "<a class=\"nav-link\" href=\"/mesProjets/nousLesFemmes/views/connexion.php?action=logout\">Se déconnecter</a>";
     $registre= "<a class=\"nav-link\" <a href=\"/mesProjets/nousLesFemmes/views/registre.php\">Faire un enregistrement</a>";
-    require_once 'accueilEmp.php';
+    require_once 'base-accueil.php';
 
     echo $_SESSION['pseudo'].'</br>';
     echo $_SESSION['motDePasse'].'</br>';
@@ -24,8 +24,7 @@ if(is_logged())
 }
 else
 {
-    $title= "<a class=\"nav-link\" href=\"/mesProjets/nousLesFemmes/controllers/principalOut.php\">Se Connecter</a>";
-    require_once 'accueil.php';
+    header('Location: /mesProjets/nousLesFemmes/controllers/principalOut.php');
 }
 ?>
 </body>

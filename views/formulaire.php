@@ -1,7 +1,6 @@
 <?php
 error_reporting(-1);
 ini_set("display_errors", 1);
-// require_once "../modeles/database.php";
 require_once "../utils/util.php";
 init_php_session();
 

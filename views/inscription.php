@@ -119,6 +119,7 @@ if(isset($_POST['rep-inscription']))
 
 ?>
 
+<?php if(is_admin()): ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,7 +131,6 @@ if(isset($_POST['rep-inscription']))
 </head>
 <body>
 
-<?php if(is_admin()): ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid" style="width: 800px;"> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -151,7 +151,6 @@ if(isset($_POST['rep-inscription']))
             </div>
         </div>
     </nav>
-<?php endif; ?>
     <h1 style="text-align:center;">Page d'inscription</h1>
     <div class="container">
         <hr class="row" style="width:350px; margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
@@ -207,3 +206,6 @@ if(isset($_POST['rep-inscription']))
     </div>
 </body>
 </html>
+<?php else: ?>
+    <?php header('Location: /mesProjets/nousLesFemmes/controllers/principalOut.php');?>
+<?php endif; ?>
