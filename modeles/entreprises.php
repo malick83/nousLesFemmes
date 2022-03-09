@@ -28,17 +28,14 @@ function SetEntreprises($par1, $par2, $par3, $par4, $par5, $par6, $par7, $par8, 
     return true;
 }
 
-function getEntD($par1)
+function getEntD()
 {
     $request = Database::getPdo()->prepare('SELECT `ent_nom`, `ent_registreCom`, `prenom`, `nom`, `rep_mail` FROM `Nlf_Entreprises`
     INNER JOIN `Nlf_Repondants` ON `Nlf_Entreprises`.`ent_rep` = `Nlf_Repondants`.`id_rep`
-    INNER JOIN `Nlf_Personnes` ON `Nlf_Repondants`.`rep_pers` = `Nlf_Personnes`.`id` WHERE `ent_registreCom`= :param1');
-    $monTableau = 
-    [
-        'param1' => $par1
-    ];
-    $request->execute($monTableau);
-    return $request->fetch(PDO::FETCH_ASSOC);
+    INNER JOIN `Nlf_Personnes` ON `Nlf_Repondants`.`rep_pers` = `Nlf_Personnes`.`id` ORDER BY `id_ent` DESC LIMIT 5');
+
+    $request->execute();
+    return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
 

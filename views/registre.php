@@ -11,8 +11,7 @@ require_once "../utils/util.php";
 require_once "../controllers/entreprises.php";
 init_php_session();
 
-$te = 19484342;
-$DetailsEnt = GetInfosEnt::getDetailsEnt($te);
+$DetailsEnt = GetInfosEnt::getDetailsEnt();
 
 
 
@@ -31,8 +30,6 @@ if(isset($_POST['rep-registre']))
     $mailRepondantE = isset($_POST['mail']);
     $mailRepondantV = !empty($_POST['mail']);    
 
-// 
-
     $nomEntE = isset($_POST['nomEnt']);
     $nomEntV = !empty($_POST['nomEnt']);
 
@@ -48,7 +45,6 @@ if(isset($_POST['rep-registre']))
     $registreEntE = isset($_POST['registreEnt']);
     $registreEntV = !empty($_POST['registreEnt']);    
 
-    // arret
     $typeEntE = isset($_POST['typeEnt']);
     $typeEntV = !empty($_POST['typeEnt']);  
 
@@ -114,15 +110,7 @@ if(isset($_POST['rep-registre']))
             $regEnt = $_POST['regEnt'];
             $dptEnt = $_POST['dptEnt'];
             $comEnt = $_POST['comEnt'];
-            echo '<div style="margin-top:100px;">';
-            echo $prenomPersonne.'</br>';
-            echo $nomPersonne.'</br>';
-            echo $dptEnt.'</br>';
-            echo $pageWebEnt.'</br>';
-            echo $regimeJEnt.'</br>';
-            echo $nombreEmpEnt.'</br>';
-            echo $contratEnt.'</br>';
-            echo '</div>';
+
 
             require_once "../controllers/personnes.php";
             $maPersonne = new Personnes($nomPersonne, $prenomPersonne, $telephonePersonne);
@@ -142,7 +130,6 @@ if(isset($_POST['rep-registre']))
             $monQuartier->ajouterQrt();
             $monIDqrt=$monQuartier->DernieriDqtr();
 
-            // 
             require_once "../controllers/sieges.php";
             $monSiege = new Sieges($nomSiegeEnt, $monIDqrt);
             $monSiege->ajouterSg();
@@ -213,46 +200,40 @@ if(isset($_POST['rep-registre']))
 
 <h1 style="text-align:center;margin-top:100px;">Page d'enregistrement</h1>
 <hr style="width:350px; margin:auto;margin-bottom:80px;margin-top:20px;height:3px;">
-<!--  -->
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-6 col-xs-2">
             <table class="table mb-12 table-striped table-bordered" style="text-align:center;margin-top:0px;">
                 <thead>
-                    <tr >
-                        <th><a href="?orderby=nom">Nom entreprise</a></th>
-                        <th><a href="?orderby=coordonnees">INEA</a></th>
-                        <th><a href="?orderby=ninea">Prénom</a></th>
-                        <th><a href="?orderby=siege">Nom</a></th>
+                    <tr>
+                        <th><a href="#">Nom entreprise</a></th>
+                        <th><a href="#">INEA</a></th>
+                        <th><a href="#">Prénom</a></th>
+                        <th><a href="#">Nom</a></th>
                         <th>Action</th>
                     </tr>
                 </thead>
 
                 <tbody>                        
-                    <tr>
-                        <td><?php echo htmlentities($DetailsEnt['ent_nom']);  ?></td>
-                        <td><?php echo htmlentities($DetailsEnt['ent_registreCom']); ?></td>
-                        <td><?php echo htmlentities($DetailsEnt['prenom']); ?></td>
-                        <td><?php echo htmlentities($DetailsEnt['nom']); ?></td>
-                        <td>
-                            <a class="btn btn-info" href="#">Détails</a>
-                            <a class="btn btn-success" href="#">Modifier</a>
-                            <a class="btn btn-danger" href="#">Supprimer</a>
-                        </td>
-
-                    </tr>
+                    <?php foreach ($DetailsEnt as $detail): ?>
+                        <tr>
+                            <td><?php echo htmlentities($detail['ent_nom']); ?></td>
+                            <td><?php echo htmlentities($detail['ent_registreCom']); ?></td>
+                            <td><?php echo htmlentities($detail['prenom']); ?></td>
+                            <td><?php echo htmlentities($detail['nom']); ?></td>
+                            <td>
+                                <a class="btn btn-info" href="#">Détails</a>
+                                <a class="btn btn-success" href="#">Modifier</a>
+                                <a class="btn btn-danger" href="#">Supprimer</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table> 
         </div>
-
-
-
-<!--  -->
+        
         <div class="col-6 col-xs-2"> 
-        <!-- <div class="col-6-md col-xs-2"> -->
-            <!-- <div class="container"> -->
-                <!-- <div class="col justify-content-md-center"> -->
-                    <!-- <hr style="width:1050px;margin:auto;margin-bottom:80px;margin-top:20px;height:3px;"> -->
             <form id="id_form" method="POST" action="" style="border-radius: 15px 15px 15px 15px;margin:auto;box-shadow: 10px 8px 34px 6px rgba(185, 181, 181, 0.685);padding-left:30px;padding-right:30px;padding-top:30px;padding-bottom:30px;">
                 <div class="mb-4">
                     <label for="prenom" class="form-label">Prénom du répondant</label>

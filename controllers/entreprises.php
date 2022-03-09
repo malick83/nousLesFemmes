@@ -47,9 +47,9 @@ class Entreprises
 
 class GetInfosEnt
 {
-    public static function getDetailsEnt($myEnt)
+    public static function getDetailsEnt()
     {
-        return getEntD($myEnt);
+        return getEntD();
     }
 }
 
